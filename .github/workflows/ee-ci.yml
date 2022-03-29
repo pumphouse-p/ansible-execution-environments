@@ -11,7 +11,7 @@ on:
 
 jobs:
   call-deploy-workflow:
-    uses: pumphouse-p/ansible-execution-environments/workflows/build-and-push.yml@main
+    uses: pumphouse-p/ansible-execution-environments/.github/workflows/build-and-push.yml@main
     with:
       EE_DIR_NAME: ee-ci
       EE_IMAGE_TAG: latest
