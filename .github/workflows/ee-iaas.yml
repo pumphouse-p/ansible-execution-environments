@@ -1,11 +1,11 @@
-name: Main EE build
+name: IaaS EE build
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'ee-main/**'
+      - 'ee-iaas/**'
 
   workflow_dispatch:
 
@@ -13,7 +13,7 @@ jobs:
   call-deploy-workflow:
     uses: pumphouse-p/ansible-execution-environments/.github/workflows/build-and-push.yml@main
     with:
-      EE_DIR_NAME: ee-main
+      EE_DIR_NAME: iaas-main
       EE_IMAGE_TAG: latest
       REGISTRY_URL: quay.io
       REGISTRY_USERNAME: deparris
