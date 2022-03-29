@@ -1,0 +1,77 @@
+name: Build and Push EE
+
+on:
+  workflow_call:
+    inputs:
+      EE_DIR_NAME:
+        description: 'name of the directory where the EE manifests are located'
+        default: ''
+        required: true
+        type: string
+      EE_IMAGE_TAG:
+        description: 'tag to use for the image being built'
+        default: latest
+        required: true
+        type: string
+      REGISTRY_URL:
+        description: 'base domain for the destination container registry'
+        default: quay.io
+        required: true
+        type: string
+      REGISTRY_USERNAME:
+        description: 'username on the destination container registry'
+        required: true
+        type: string
+    secrets:
+      REDHAT_USERNAME:
+        description: 'Red Hat username if using official base images'
+        required: false
+      REDHAT_PASSWORD:
+        description: 'Red Hat password if using official base images'
+        required: false
+      REGISTRY_PASSWORD:
+        description: 'password on the destination container registry'
+        required: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: deploy
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Install python prerequisites
+        run: pip3 install -r requirements.txt
+
+      - name: Login to container registry
+        uses: redhat-actions/podman-login@v1
+        with:
+          registry: ${{ inputs.REGISTRY_URL }}
+          username: ${{ inputs.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
+      - name: Login to Red Hat Registry
+        uses: redhat-actions/podman-login@v1
+        with:
+          registry: registry.redhat.io
+          username: ${{ secrets.REDHAT_USERNAME }}
+          password: ${{ secrets.REDHAT_PASSWORD }}
+
+      - name: Build EE image
+        working-directory: ${{ inputs.EE_DIR_NAME }}
+        run: |
+          ansible-builder build \
+          -t ${{ inputs.EE_DIR_NAME }}:${{ inputs.EE_IMAGE_TAG }}
+
+      - name: Push to registry
+        id: push-to-registry
+        uses: redhat-actions/push-to-registry@v2
+        with:
+          image: ${{ inputs.EE_DIR_NAME }}:${{ inputs.EE_IMAGE_TAG }}
+          registry: ${{ inputs.REGISTRY_URL }}/${{ inputs.REGISTRY_USERNAME }}
+          username: ${{ inputs.REGISTRY_USERNAME }}
+          password: ${{ inputs.REGISTRY_PASSWORD }}
+
+      - name: Output image URL
+        run: echo "Image pushed to ${{ steps.push-to-registry.outputs.registry-paths }}"
