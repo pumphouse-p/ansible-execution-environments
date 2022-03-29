@@ -16,7 +16,5 @@ collections:
     version: 1.10.0
   - name: openstack.cloud
     version: 1.5.3
-  - name: hetzner.hcloud
-    version: 1.6.0
   - name: community.digitalocean
     version: 1.14.0
