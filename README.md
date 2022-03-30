@@ -1,4 +1,4 @@
-![ee-main build](https://github.com/pumphouse-p/ansible-execution-environments/actions/workflows/ee-main.yml/badge.svg) ![ee-ci build](https://github.com/pumphouse-p/ansible-execution-environments/actions/workflows/ee-ci.yml/badge.svg) ![ee-iaas build](https://github.com/pumphouse-p/ansible-execution-environments/actions/workflows/ee-iaas.yml/badge.svg) 
+![ee-main build](https://github.com/pumphouse-p/ansible-execution-environments/actions/workflows/ee-main.yml/badge.svg) ![ee-ci build](https://github.com/pumphouse-p/ansible-execution-environments/actions/workflows/ee-ci.yml/badge.svg) ![ee-iaas build](https://github.com/pumphouse-p/ansible-execution-environments/actions/workflows/ee-iaas.yml/badge.svg) ![ee-servicenow build](https://github.com/pumphouse-p/ansible-execution-environments/actions/workflows/ee-servicenow.yml/badge.svg) 
 
 # ansible-execution-environments
 
