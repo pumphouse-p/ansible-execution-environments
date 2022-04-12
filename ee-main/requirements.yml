@@ -10,3 +10,6 @@ collections:
     version: 4.2.0
   - name: containers.podman
     version: 1.9.3
+
+roles:
+  - name: geerlingguy.certbot
