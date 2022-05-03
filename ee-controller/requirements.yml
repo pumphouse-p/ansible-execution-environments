@@ -2,3 +2,4 @@ collections:
   - name: redhat_cop.controller_configuration
     version: 2.1.4
   - name: awx.awx
+  - name: redhat_cop.ah_configuration
