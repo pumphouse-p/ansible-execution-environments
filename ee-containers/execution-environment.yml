@@ -1,0 +1,15 @@
+---
+version: 1
+
+build_arg_defaults:
+  EE_BASE_IMAGE: 'registry.redhat.io/ansible-automation-platform-22/ee-minimal-rhel8:1.0.0-167'
+
+dependencies:
+  galaxy: requirements.yml
+  python: requirements.txt
+  system: bindep.txt
+
+additional_build_steps:
+  append:
+    - ENV HELM_VERSION=3.9.3
+    - RUN microdnf install tar xz && curl -sL -o helm.tar.gz https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz && tar xf helm.tar.gz linux-amd64/helm && chmod +x linux-amd64/helm && mv linux-amd64/helm /usr/bin && microdnf clean all && rm -rf helm.tar.gz linux-amd64
