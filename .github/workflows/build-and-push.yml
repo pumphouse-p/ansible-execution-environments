@@ -65,6 +65,11 @@ jobs:
         env:
           AH_TOKEN: ${{ secrets.AH_TOKEN }}
 
+      - name: Copy ansible.cfg to working dir
+        id: ansible-cfg
+        run: |
+          cp ansible.cfg ${{ inputs.EE_DIR_NAME }}
+
       - name: Build EE image
         working-directory: ${{ inputs.EE_DIR_NAME }}
         run: |
