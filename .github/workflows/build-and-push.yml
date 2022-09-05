@@ -58,11 +58,20 @@ jobs:
           username: ${{ secrets.REDHAT_USERNAME }}
           password: ${{ secrets.REDHAT_PASSWORD }}
 
+      - name: Write Automation Hub Token to ansible.cfg
+        id: ah-token
+        run: |
+          sed -i "/s/AUTOMATION_HUB_TOKEN_VALUE/$AH_TOKEN/g" ansible.cfg
+        env:
+          AH_TOKEN: ${{ secrets.AH_TOKEN }}
+
       - name: Build EE image
         working-directory: ${{ inputs.EE_DIR_NAME }}
         run: |
           ansible-builder build \
           -t ${{ inputs.EE_DIR_NAME }}:${{ inputs.EE_IMAGE_TAG }}
+        env:
+          ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_TOKEN: ${{ secrets.AH_TOKEN }}
 
       - name: Push to registry
         id: push-to-registry
