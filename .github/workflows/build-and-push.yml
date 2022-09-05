@@ -61,7 +61,7 @@ jobs:
       - name: Write Automation Hub Token to ansible.cfg
         id: ah-token
         run: |
-          sed -i "/s/AUTOMATION_HUB_TOKEN_VALUE/$AH_TOKEN/g" ansible.cfg
+          sed -i "s/AUTOMATION_HUB_TOKEN_VALUE/$AH_TOKEN/g" ansible.cfg
         env:
           AH_TOKEN: ${{ secrets.AH_TOKEN }}
 
