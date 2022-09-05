@@ -32,6 +32,9 @@ on:
       REGISTRY_PASSWORD:
         description: 'password on the destination container registry'
         required: true
+      AH_TOKEN:
+        description: 'API token for Automation Hub'
+        required: false
 
 jobs:
   build-and-deploy:
