@@ -1,0 +1,7 @@
+---
+collections:
+  - name: containers.podman
+  - name: community.general
+  - name: ansible.posix
+  - source: https://github.com/pumphouse-p/ansible-collection-cicd.git
+    type: git
