@@ -1,4 +1,5 @@
 ---
 collections:
-  - servicenow.itsm
-  - amazon.aws
+  - name: servicenow.itsm
+  - name: amazon.aws
+  - name: azure.azcollection
