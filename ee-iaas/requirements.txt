@@ -7,3 +7,4 @@ google-auth>=1.3.0
 openstacksdk>=0.28
 proxmoxer
 apache-libcloud>=0.17.0
+netaddr
