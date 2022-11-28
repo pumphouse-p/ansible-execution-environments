@@ -9,3 +9,4 @@ proxmoxer
 apache-libcloud>=0.17.0
 netaddr
 aiohttp
+git+https://github.com/vmware/vsphere-automation-sdk-python.git
