@@ -11,3 +11,4 @@ collections:
   - name: openstack.cloud
   - name: community.digitalocean
   - name: vmware.vmware_rest
+  - name: community.vmware
