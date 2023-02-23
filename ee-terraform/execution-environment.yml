@@ -2,7 +2,7 @@
 version: 1
 
 build_arg_defaults:
-  EE_BASE_IMAGE: 'registry.redhat.io/ansible-automation-platform-21/ee-minimal-rhel8:1.0.0-70'
+  EE_BASE_IMAGE: 'registry.redhat.io/ansible-automation-platform-22/ee-minimal-rhel8:1.0.0-260'
 
 dependencies:
   galaxy: requirements.yml
@@ -10,7 +10,7 @@ dependencies:
 
 additional_build_steps:
   append:
-    - RUN microdnf install unzip && curl -s -o terraform.zip https://releases.hashicorp.com/terraform/1.1.7/terraform_1.1.7_linux_amd64.zip && unzip terraform.zip && chmod +x terraform && mv terraform /usr/bin && microdnf clean all
+    - RUN microdnf install unzip && curl -s -o terraform.zip https://releases.hashicorp.com/terraform/1.3.9/terraform_1.3.9_linux_amd64.zip && unzip terraform.zip && chmod +x terraform && mv terraform /usr/bin && microdnf clean all
     - RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
     - COPY azure-cli.repo /etc/yum.repos.d/azure-cli.repo
     - RUN microdnf install -y azure-cli
