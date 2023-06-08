@@ -1,6 +1,9 @@
 name: CI EE build
 
 on:
+  schedule:
+    - cron: '30 1 * * 0'
+
   push:
     branches:
       - main
