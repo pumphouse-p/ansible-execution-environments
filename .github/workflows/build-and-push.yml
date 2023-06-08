@@ -1,6 +1,8 @@
 name: Build and Push EE
 
 on:
+  schedule:
+    - cron: '30 1 * * 0'
   workflow_call:
     inputs:
       EE_DIR_NAME:
