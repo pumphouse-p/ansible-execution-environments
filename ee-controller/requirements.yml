@@ -1,10 +1,12 @@
+---
 collections:
-  - name: redhat_cop.aap_utilities
+  - name: infra.aap_utilities
     version: 2.2.4
-  - name: redhat_cop.controller_configuration
-    version: 2.3.1
-  - name: redhat_cop.ah_configuration
+  - name: infra.controller_configuration
+    version: 2.4.0
+  - name: infra.ah_configuration
     version: 1.1.1
-  - name: redhat_cop.ee_utilities
-    version: 2.0.7
-  - name: awx.awx
+  - name: infra.ee_utilities
+    version: 3.0.0
+  - name: ansible.controller
+    version: 4.4.0
