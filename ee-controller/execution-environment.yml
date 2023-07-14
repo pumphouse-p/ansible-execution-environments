@@ -3,7 +3,7 @@ version: 3
 
 images:
   base_image:
-    name: 'registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel8:2.12.10-23'
+    name: registry.redhat.io/ansible-automation-platform/ee-minimal-rhel8@sha256:dbdcb808490ad0617132d91e28eccc896a6aad0be9cf61ca474ea5640af7da64
 
 dependencies:
   galaxy: requirements.yml
