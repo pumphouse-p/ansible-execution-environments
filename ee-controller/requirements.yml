@@ -9,4 +9,4 @@ collections:
   - name: infra.ee_utilities
     version: 3.0.0
   - name: awx.awx
-    version: 4.4.0
+    version: 22.5.0
