@@ -7,3 +7,6 @@ images:
 
 dependencies:
   galaxy: requirements.yml
+
+options:
+  package_manager_path: /usr/bin/microdnf
