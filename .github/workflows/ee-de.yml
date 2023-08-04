@@ -1,0 +1,26 @@
+name: Decision Environment build
+
+on:
+  schedule:
+    - cron: '30 1 * * 0'
+
+  push:
+    branches:
+      - main
+    paths:
+      - 'ee-de/**'
+
+  workflow_dispatch:
+
+jobs:
+  call-deploy-workflow:
+    uses: pumphouse-p/ansible-execution-environments/.github/workflows/build-and-push.yml@main
+    with:
+      EE_DIR_NAME: ee-de
+      EE_IMAGE_TAG: latest
+      REGISTRY_URL: quay.io
+      REGISTRY_USERNAME: deparris
+    secrets:
+      REDHAT_USERNAME: ${{ secrets.REDHAT_USERNAME }}
+      REDHAT_PASSWORD: ${{ secrets.REDHAT_PASSWORD }}
+      REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}

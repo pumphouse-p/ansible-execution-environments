@@ -5,7 +5,8 @@
 ![ee-terraform build](https://github.com/pumphouse-p/ansible-execution-environments/actions/workflows/ee-terraform.yml/badge.svg)
 ![ee-controller build](https://github.com/pumphouse-p/ansible-execution-environments/actions/workflows/ee-controller.yml/badge.svg)
 ![ee-containers build](https://github.com/pumphouse-p/ansible-execution-environments/actions/workflows/ee-containers.yml/badge.svg) 
+![ee-de build](https://github.com/pumphouse-p/ansible-execution-environments/actions/workflows/ee-de.yml/badge.svg) 
 
 # ansible-execution-environments
 
-Artifacts used to build and publish Ansible execution environments
+Artifacts used to build and publish Ansible execution environments and decision environments.
