@@ -1,0 +1,13 @@
+---
+version: 3
+
+images:
+  base_image:
+    name: registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel9@sha256:5bb1f3c8151ab53642c46b6293030addffe3b5a99b7fdd8e32987b6ace6ae538
+
+dependencies:
+  galaxy: requirements.yml
+  python: requirements.txt
+
+options:
+  package_manager_path: /usr/bin/microdnf

@@ -6,6 +6,7 @@
 ![ee-controller build](https://github.com/pumphouse-p/ansible-execution-environments/actions/workflows/ee-controller.yml/badge.svg)
 ![ee-containers build](https://github.com/pumphouse-p/ansible-execution-environments/actions/workflows/ee-containers.yml/badge.svg) 
 ![ee-de build](https://github.com/pumphouse-p/ansible-execution-environments/actions/workflows/ee-de.yml/badge.svg) 
+![ee-windows build](https://github.com/pumphouse-p/ansible-execution-environments/actions/workflows/ee-windows.yml/badge.svg) 
 
 # ansible-execution-environments
 
