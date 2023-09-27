@@ -12,3 +12,4 @@ collections:
   - name: community.digitalocean
   - name: vmware.vmware_rest
   - name: community.vmware
+    version: 3.9.0
