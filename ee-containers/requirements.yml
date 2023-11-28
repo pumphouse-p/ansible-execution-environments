@@ -4,3 +4,4 @@ collections:
   - community.general
   - kubernetes.core
   - redhat.openshift
+  - infra.aap_utilities

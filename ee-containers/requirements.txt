@@ -1,2 +1,4 @@
 kubernetes
 PyYAML
+requests
+requests-oauthlib
