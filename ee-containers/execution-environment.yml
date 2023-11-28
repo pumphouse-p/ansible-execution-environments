@@ -20,6 +20,7 @@ options:
 additional_build_steps:
   prepend_base:
     - COPY _build/rpms/*.rpm /tmp/openshift-clients.rpm
+    - RUN /usr/bin/microdnf install bash-completion
     - RUN rpm -ivh /tmp/openshift-clients.rpm
   append_final:
     - ENV HELM_VERSION=3.13.2
