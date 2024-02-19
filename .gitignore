@@ -3,3 +3,5 @@
 **/context/Containerfile
 **/context/Dockerfile
 **.log
+
+.venv
