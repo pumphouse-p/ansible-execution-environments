@@ -8,7 +8,7 @@ collections:
     version: 2.0.4
   - name: infra.ee_utilities
     version: 3.1.3
-  - name: ansible.controller
-    version: 4.5.1
+  - name: awx.awx
+    version: 23.8.1
   - name: cloud.terraform
     version: 2.0.0
