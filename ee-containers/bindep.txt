@@ -1,1 +1,2 @@
 git [platform:rpm]
+gke-gcloud-auth-plugin [platform:rpm]
