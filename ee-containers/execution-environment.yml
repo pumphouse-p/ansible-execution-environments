@@ -13,7 +13,7 @@ dependencies:
 additional_build_files:
   - dest: rpms
     src: openshift-clients-4.13.0-202311151332.p0.gc7c6eb2.assembly.stream.el9.x86_64.rpm
-  - dest: config
+  - dest: configs
     src: ../ansible.cfg
 
 options:
@@ -26,6 +26,8 @@ additional_build_steps:
     - COPY _build/config/ansible.cfg /etc/ansible/ansible.cfg
     - RUN microdnf -y install bash-completion
     - RUN rpm -ivh /tmp/openshift-clients.rpm
+  prepend_galaxy:
+    - ADD _build/configs/ansible.cfg /etc/ansible/ansible.cfg
   append_final:
     - ENV HELM_VERSION=3.13.2
     - RUN microdnf -y install tar xz && curl -sL -o helm.tar.gz https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz && tar xf helm.tar.gz linux-amd64/helm && chmod +x linux-amd64/helm && mv linux-amd64/helm /usr/bin && microdnf clean all && rm -rf helm.tar.gz linux-amd64
