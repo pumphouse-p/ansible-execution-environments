@@ -3,7 +3,7 @@ version: 3
 
 images:
   base_image:
-    name: registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel9@sha256:5bb1f3c8151ab53642c46b6293030addffe3b5a99b7fdd8e32987b6ace6ae538
+    name: registry.redhat.io/ansible-automation-platform-25/ee-minimal-rhel9@sha256:9e94b335b66993881a6fd8331050178049eec92475b68dfad8379d2168bcbf77
 
 dependencies:
   system: bindep.txt
