@@ -1,7 +1,0 @@
----
-collections:
-  - name: microsoft.sql
-  - name: chocolatey.chocolatey
-  - name: ansible.windows
-  - name: community.windows
-  
