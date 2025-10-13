@@ -33,6 +33,12 @@ dependencies:
     - git [platform:rpm]
 
 additional_build_steps:
+  prepend_galaxy:
+    - ENV ANSIBLE_GALAXY_SERVER_LIST=automation_hub,galaxy
+    - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_URL=https://console.redhat.com/api/automation-hub/content/published/
+    - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_AUTH_URL=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token'
+    - ENV ANSIBLE_GALAXY_SERVER_GALAXY_URL=https://galaxy.ansible.com
+    - ARG AH_TOKEN
   append_final:
     - RUN microdnf install -y yum-utils
     - RUN yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
