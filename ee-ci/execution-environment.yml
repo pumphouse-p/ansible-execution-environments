@@ -10,8 +10,9 @@ build_arg_defaults:
 
 dependencies:
   galaxy:
-    - containers.podman
-    - community.general
+    collections:
+      - name: containers.podman
+      - name: community.general
   python:
     - docker
     - python-jenkins
