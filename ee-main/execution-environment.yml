@@ -25,10 +25,10 @@ dependencies:
     roles:
       - name: geerlingguy.certbot
   python:
-    botocore
-    boto3
-    boto
-    pysnow
+    - botocore
+    - boto3
+    - boto
+    - pysnow
 
 options:
   package_manager_path: /usr/bin/microdnf
