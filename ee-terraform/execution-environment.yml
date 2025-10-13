@@ -20,8 +20,6 @@ dependencies:
         version: 1.9.0
       - name: cloud.terraform
         version: 4.0.0
-      - name: cloud.terraform_ops
-        version: 1.0.0
       - name: hashicorp.terraform
         version: 1.1.0
       - name: ansible.scm
