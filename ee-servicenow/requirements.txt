@@ -1,5 +1,0 @@
-pysnow
-requests
-boto3
-botocore
-urllib3

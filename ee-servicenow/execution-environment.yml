@@ -3,11 +3,23 @@ version: 3
 
 images:
   base_image:
-    name: registry.redhat.io/ansible-automation-platform-24/ee-supported-rhel9@sha256:aa68fc3237438e1d841596c8297bd53d036d3d2fe67b631c9bc979c7eed3c6eb
+    name: 'registry.redhat.io/ansible-automation-platform-26/ee-minimal-rhel9:1.0.0' 
 
 dependencies:
-  galaxy: requirements.yml
-  python: requirements.txt
+  galaxy:
+    collections:
+      - name: amazon.aws
+        version: 10.1.2
+      - name: servicenow.itsm
+        version: 2.13.0
+      - name: azure.azcollection
+        version: 3.9.0
+  python:
+    - pysnow
+    - requests
+    - boto3
+    - botocore
+    - urllib3
 
 options:
   package_manager_path: /usr/bin/microdnf
