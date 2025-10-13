@@ -74,7 +74,7 @@ jobs:
         working-directory: ${{ inputs.EE_DIR_NAME }}
         run: |
           ansible-builder build \
-          --build-arg ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_TOKEN=${{ secrets.AH_TOKEN }} \
+          --build-arg ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_TOKEN="${ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_TOKEN}" \
           -t ${{ inputs.EE_DIR_NAME }}:${{ inputs.EE_IMAGE_TAG }}
         env:
           ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_TOKEN: ${{ secrets.AH_TOKEN }}
