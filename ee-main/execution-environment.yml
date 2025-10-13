@@ -3,12 +3,32 @@ version: 3
 
 images:
   base_image:
-    name: 'registry.redhat.io/ansible-automation-platform/ee-minimal-rhel8:2.15.5-3'
+    name: 'registry.redhat.io/ansible-automation-platform-26/ee-minimal-rhel9:1.0.0' 
 
 dependencies:
-  system: bindep.txt
-  galaxy: requirements.yml
-  python: requirements.txt
+  system:
+    - git [platform:rpm]
+  galaxy:
+    collections:
+      - name: amazon.aws
+        version: 10.1.2
+      - name: community.aws
+        version: 10.0.0
+      - name: servicenow.itsm
+        version: 2.13.0
+      - name: community.general
+        version: 11.4.0
+      - name: containers.podman
+        version: 1.18.0
+      - name: ansible.posix
+        version: 2.1.0
+    roles:
+      - name: geerlingguy.certbot
+  python:
+    botocore
+    boto3
+    boto
+    pysnow
 
 options:
   package_manager_path: /usr/bin/microdnf
