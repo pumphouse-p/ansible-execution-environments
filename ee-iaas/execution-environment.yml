@@ -3,12 +3,54 @@ version: 3
 
 images:
   base_image:
-    name: registry.redhat.io/ansible-automation-platform-25/ee-minimal-rhel9@sha256:9e94b335b66993881a6fd8331050178049eec92475b68dfad8379d2168bcbf77
+    name: 'registry.redhat.io/ansible-automation-platform-26/ee-minimal-rhel9:1.0.0'
 
 dependencies:
-  system: bindep.txt
-  galaxy: requirements.yml
-  python: requirements.txt
+  system:
+    - git [platform:rpm]
+    - rsync [platform:rpm]
+  galaxy:
+    collections:
+      - name: amazon.aws
+        version: 10.1.2
+      - name: community.aws
+        version: 10.0.0
+      - name: servicenow.itsm
+        version: 2.13.0
+      - name: community.general
+        version: 11.4.0
+      - name: containers.podman
+        version: 1.18.0
+      - name: google.cloud
+        version: 1.9.0
+      - name: azure.azcollection
+        version: 3.9.0
+      - name: openstack.cloud
+        version: 2.4.1
+      - name: vmware.vmware_rest
+        version: 4.9.0
+      - name: community.vmware
+        version: 5.9.0
+  python:
+    - botocore
+    - boto3
+    - boto
+    - pysnow
+    - requests
+    - google-auth
+    - openstacksdk
+    - proxmoxer
+    - apache-libcloud
+    - netaddr
+    - aiohttp
+
+additional_build_steps:
+  prepend_galaxy:
+    - ENV ANSIBLE_GALAXY_SERVER_LIST=automation_hub,galaxy
+    - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_URL=https://console.redhat.com/api/automation-hub/content/published/
+    - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_AUTH_URL=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
+    - ENV ANSIBLE_GALAXY_SERVER_GALAXY_URL=https://galaxy.ansible.com
+    - ARG ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_TOKEN
 
 options:
   package_manager_path: /usr/bin/microdnf
