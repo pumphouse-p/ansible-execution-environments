@@ -37,7 +37,7 @@ options:
 
 additional_build_steps:
   prepend_galaxy:
-    - ENV ANSIBLE_GALAXY_SERVER_LIST=automation_hub,galaxy
+    - ENV ANSIBLE_GALAXY_SERVER_LIST=automation_hub,validated,galaxy
     - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_URL=https://console.redhat.com/api/automation-hub/content/published/
     - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_AUTH_URL=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
     - ENV ANSIBLE_GALAXY_SERVER_VALIDATED_URL=https://console.redhat.com/api/automation-hub/content/validated/
