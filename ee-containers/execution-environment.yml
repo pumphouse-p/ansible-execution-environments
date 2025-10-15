@@ -25,7 +25,9 @@ dependencies:
     - requests-oauthlib
   system:
     - git [platform:rpm]
-    - yum-utils [platform:rpm]
+    - gcc [platform:rpm]
+    - python-devel [platform:rpm]
+    - libxml2-devel [platform:rpm]
 
 # additional_build_files:
 #   - dest: rpms
@@ -41,8 +43,8 @@ options:
   package_manager_path: /usr/bin/microdnf
 
 additional_build_steps:
-  prepend_base:
-    - RUN microdnf install -y gcc python-devel libxml2-devel
+#   prepend_base:
+#     - RUN microdnf install -y gcc python-devel libxml2-devel
 #     - RUN /usr/bin/python3 -m pip install --upgrade pip setuptools
 #     - COPY _build/rpms/*.rpm /tmp/openshift-clients.rpm
 #     - RUN microdnf -y install bash-completion
