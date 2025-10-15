@@ -29,6 +29,8 @@ dependencies:
     - gcc [platform:rpm]
     - python-devel [platform:rpm]
     - krb5-devel [platform:rpm]
+  python_interpreter:
+    python_path: /usr/bin/python3.11
 
 additional_build_steps:
   prepend_galaxy:
