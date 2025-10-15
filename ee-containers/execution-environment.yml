@@ -40,7 +40,7 @@ dependencies:
 options:
   package_manager_path: /usr/bin/microdnf
 
-# additional_build_steps:
+additional_build_steps:
 #   prepend_base:
 #     - RUN /usr/bin/python3 -m pip install --upgrade pip setuptools
 #     - COPY _build/rpms/*.rpm /tmp/openshift-clients.rpm
