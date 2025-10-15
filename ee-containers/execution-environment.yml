@@ -28,6 +28,7 @@ dependencies:
     - gcc [platform:rpm]
     - python-devel [platform:rpm]
     - libxml2-devel [platform:rpm]
+    - systemd-devel [platform:rpm]
 
 # additional_build_files:
 #   - dest: rpms
