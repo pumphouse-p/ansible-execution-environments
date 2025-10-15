@@ -25,14 +25,12 @@ dependencies:
     - pywinrm
     - cryptography
     - requests
-    - pyspnego
-    - python-gssapi
-    - pykrb5
-    - requests-credssp
+  system:
+    - gcc [platform:rpm]
+    - python-devel [platform:rpm]
+    - krb5-devel [platform:rpm]
 
 additional_build_steps:
-  append_base:
-    - RUN microdnf install -y gcc python-devel krb5-devel
   prepend_galaxy:
     - ENV ANSIBLE_GALAXY_SERVER_LIST=automation_hub,galaxy
     - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_URL=https://console.redhat.com/api/automation-hub/content/published/
