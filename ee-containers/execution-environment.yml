@@ -42,7 +42,7 @@ options:
 
 additional_build_steps:
   prepend_base:
-    - RUN microdnf install gcc python-devel libxml2-devel
+    - RUN microdnf install -y gcc python-devel libxml2-devel
 #     - RUN /usr/bin/python3 -m pip install --upgrade pip setuptools
 #     - COPY _build/rpms/*.rpm /tmp/openshift-clients.rpm
 #     - RUN microdnf -y install bash-completion
