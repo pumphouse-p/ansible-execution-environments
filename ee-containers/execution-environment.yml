@@ -3,30 +3,62 @@ version: 3
 
 images:
   base_image:
-    name: registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel9@sha256:5bb1f3c8151ab53642c46b6293030addffe3b5a99b7fdd8e32987b6ace6ae538
+    name: 'registry.redhat.io/ansible-automation-platform-26/ee-supported-rhel9:1.0.0'
 
 dependencies:
-  galaxy: requirements.yml
-  python: requirements.txt
-  system: bindep.txt
+  galaxy:
+    collections:
+      - name: containers.podman
+        version: 1.18.0
+      - name: community.general
+        version: 11.4.0
+      - name: kubernetes.core
+        version: 6.2.0
+      - name: redhat.openshift
+        version: 5.0.0
+      - name: redhat.openshift_virtualization
+        version: 2.2.3
+  python:
+    - kubernetes
+    - PyYAML
+    - requests
+    - requests-oauthlib
+  system:
+    - git [platform:rpm]
+    - yum-utils [platform:rpm]
 
-additional_build_files:
-  - dest: rpms
-    src: openshift-clients-4.13.0-202311151332.p0.gc7c6eb2.assembly.stream.el9.x86_64.rpm
-  - dest: configs
-    src: ../ansible.cfg
+# additional_build_files:
+#   - dest: rpms
+#     src: openshift-clients-4.13.0-202311151332.p0.gc7c6eb2.assembly.stream.el9.x86_64.rpm
+#   - dest: configs
+#     src: ansible.cfg
+#   - dest: configs
+#     src: google-cloud-sdk.repo
+#   - dest: configs
+#     src: config_default
 
 options:
   package_manager_path: /usr/bin/microdnf
 
-additional_build_steps:
-  prepend_base:
-    - RUN /usr/bin/python3 -m pip install --upgrade pip setuptools
-    - COPY _build/rpms/*.rpm /tmp/openshift-clients.rpm
-    - RUN microdnf -y install bash-completion
-    - RUN rpm -ivh /tmp/openshift-clients.rpm
+# additional_build_steps:
+#   prepend_base:
+#     - RUN /usr/bin/python3 -m pip install --upgrade pip setuptools
+#     - COPY _build/rpms/*.rpm /tmp/openshift-clients.rpm
+#     - RUN microdnf -y install bash-completion
+#     - RUN rpm -ivh /tmp/openshift-clients.rpm
   prepend_galaxy:
     - ADD _build/configs/ansible.cfg /etc/ansible/ansible.cfg
-  append_final:
-    - ENV HELM_VERSION=3.13.2
-    - RUN microdnf -y install tar xz && curl -sL -o helm.tar.gz https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz && tar xf helm.tar.gz linux-amd64/helm && chmod +x linux-amd64/helm && mv linux-amd64/helm /usr/bin && microdnf clean all && rm -rf helm.tar.gz linux-amd64
+    - ENV ANSIBLE_GALAXY_SERVER_LIST=automation_hub,galaxy
+    - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_URL=https://console.redhat.com/api/automation-hub/content/published/
+    - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_AUTH_URL=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
+    - ENV ANSIBLE_GALAXY_SERVER_GALAXY_URL=https://galaxy.ansible.com
+    - ARG ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_TOKEN
+  # append_final:
+  #   - ENV HELM_VERSION=3.13.2
+  #   - RUN microdnf -y install tar xz && curl -sL -o helm.tar.gz https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz && tar xf helm.tar.gz linux-amd64/helm && chmod +x linux-amd64/helm && mv linux-amd64/helm /usr/bin && microdnf clean all && rm -rf helm.tar.gz linux-amd64
+  #   - ADD _build/configs/google-cloud-sdk.repo /tmp/google-cloud-sdk.repo
+  #   - RUN mkdir -p ~/.config/gcloud/configurations
+  #   - ADD _build/configs/config_default ~/.config/gcloud/configurations
+  #   - RUN yum-config-manager --add-repo /tmp/google-cloud-sdk.repo
+  #   - RUN microdnf install -y google-cloud-sdk-gke-gcloud-auth-plugin
+  #   - RUN gcloud init
