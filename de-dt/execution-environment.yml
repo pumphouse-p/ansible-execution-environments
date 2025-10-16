@@ -12,6 +12,8 @@ dependencies:
         version: 2.10.0
       - name: dynatrace.event_driven_ansible
         version: 1.2.3
+  system:
+    - pkgconf-pkg-config [platform:rpm]
 
 additional_build_steps:
   prepend_galaxy:
