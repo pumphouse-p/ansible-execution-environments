@@ -1,0 +1,23 @@
+name: Dynatrace Decision Environment build
+
+on:
+  schedule:
+    - cron: '30 1 * * 0'
+
+  push:
+    branches:
+      - main
+    paths:
+      - 'de-dt/**'
+
+  workflow_dispatch:
+
+jobs:
+  call-deploy-workflow:
+    uses: pumphouse-p/ansible-execution-environments/.github/workflows/build-and-push.yml@main
+    with:
+      EE_DIR_NAME: de-dt
+      EE_IMAGE_TAG: latest
+      REGISTRY_URL: quay.io
+      REGISTRY_USERNAME: deparris
+    secrets: inherit
