@@ -17,6 +17,8 @@ dependencies:
     - systemd-devel [platform:rpm]
     - gcc [platform:rpm]
     - python3.11-devel [platform:rpm]
+  python_interpreter:
+    python_path: /usr/bin/python3.11
 
 additional_build_steps:
   prepend_galaxy:
@@ -28,3 +30,4 @@ additional_build_steps:
 
 options:
   package_manager_path: /usr/bin/microdnf
+
