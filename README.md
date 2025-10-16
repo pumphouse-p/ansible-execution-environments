@@ -7,6 +7,7 @@
 ![ee-de build](https://github.com/pumphouse-p/ansible-execution-environments/actions/workflows/ee-de.yml/badge.svg) 
 ![ee-windows build](https://github.com/pumphouse-p/ansible-execution-environments/actions/workflows/ee-windows.yml/badge.svg) 
 ![de-dt build](https://github.com/pumphouse-p/ansible-execution-environments/actions/workflows/de-dt.yml/badge.svg) 
+![de-kentik build](https://github.com/pumphouse-p/ansible-execution-environments/actions/workflows/de-kentik.yml/badge.svg) 
 
 # ansible-execution-environments
 
