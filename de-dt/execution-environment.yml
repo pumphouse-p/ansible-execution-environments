@@ -16,6 +16,7 @@ dependencies:
     - pkgconf-pkg-config [platform:rpm]
     - systemd-devel [platform:rpm]
     - gcc [platform:rpm]
+    - python3.11-devel [platform:rpm]
 
 additional_build_steps:
   prepend_galaxy:

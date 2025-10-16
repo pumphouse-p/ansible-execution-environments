@@ -1,4 +1,4 @@
-name: Dynatrace Decision Environment build
+name: Dynatrace DE build
 
 on:
   schedule:
