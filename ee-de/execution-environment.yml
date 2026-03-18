@@ -10,6 +10,8 @@ dependencies:
     collections:
       - name: dynatrace.event_driven_ansible
         version: 1.2.3
+      - name: servicenow.itsm
+        version: 2.13.2
   system:
     - pkgconf-pkg-config [platform:rpm]
     - systemd-devel [platform:rpm]
