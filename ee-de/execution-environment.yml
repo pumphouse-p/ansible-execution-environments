@@ -18,9 +18,6 @@ additional_build_steps:
     - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_AUTH_URL=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
     - ENV ANSIBLE_GALAXY_SERVER_GALAXY_URL=https://galaxy.ansible.com
     - ARG ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_TOKEN
-  prepend_base:
-    - RUN $PYCMD -m pip install --upgrade pip setuptools
-    - RUN $PYCMD -m pip install --upgrade --ignore-installed typing-extensions
 
 options:
   package_manager_path: /usr/bin/microdnf
