@@ -20,7 +20,4 @@ jobs:
       EE_IMAGE_TAG: latest
       REGISTRY_URL: quay.io
       REGISTRY_USERNAME: deparris
-    secrets:
-      REDHAT_USERNAME: ${{ secrets.REDHAT_USERNAME }}
-      REDHAT_PASSWORD: ${{ secrets.REDHAT_PASSWORD }}
-      REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+    secrets: inherit
