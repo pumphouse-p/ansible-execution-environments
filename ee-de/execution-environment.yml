@@ -12,10 +12,6 @@ dependencies:
         version: 2.10.0
       - name: dynatrace.event_driven_ansible
         version: 1.2.3
-      - name: kentik.ansible_eda
-        version: 1.0.7
-      - name: crowdstrike.falcon
-        version: 4.8.1
       - name: redhat.insights_eda
         version: 1.2.3
       - name: ibm.turbonomic_eda
