@@ -14,9 +14,9 @@ dependencies:
     - pkgconf-pkg-config [platform:rpm]
     - systemd-devel [platform:rpm]
     - gcc [platform:rpm]
-    - python3.11-devel [platform:rpm]
+    - python3.12-devel [platform:rpm]
   python_interpreter:
-    python_path: /usr/bin/python3.11
+    python_path: /usr/bin/python3.12
 
 additional_build_steps:
   prepend_galaxy:
