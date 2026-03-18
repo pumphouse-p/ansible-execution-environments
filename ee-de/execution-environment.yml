@@ -10,14 +10,6 @@ dependencies:
     collections:
       - name: dynatrace.event_driven_ansible
         version: 1.2.3
-  python_interpreter:
-    python_path: /usr/bin/python3.11
-  system:
-    - iputils [platform:rpm]
-    - pkgconf-pkg-config [platform:rpm]
-    - systemd-devel [platform:rpm]
-    - gcc [platform:rpm]
-    - python3.11-devel [platform:rpm]
 
 additional_build_steps:
   prepend_galaxy:
