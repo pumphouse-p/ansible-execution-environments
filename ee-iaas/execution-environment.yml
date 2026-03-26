@@ -31,6 +31,8 @@ dependencies:
         version: 4.9.0
       - name: community.vmware
         version: 5.9.0
+      - name: community.proxmox
+        version: 1.6.0
   python:
     - botocore
     - boto3
