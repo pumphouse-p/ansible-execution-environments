@@ -3,24 +3,25 @@ version: 3
 
 images:
   base_image:
-    name: registry.redhat.io/ansible-automation-platform-26/de-minimal-rhel9:latest
+    name: 'registry.redhat.io/ansible-automation-platform-26/ee-supported-rhel9:1.0.0'
 
 dependencies:
   galaxy:
     collections:
-      - name: ansible.eda
-        version: 2.10.0
-      - name: kentik.ansible_eda 
-        version: 1.0.7
-  system:
-    - pkgconf-pkg-config [platform:rpm]
-    - systemd-devel [platform:rpm]
-    - gcc [platform:rpm]
-    - python3.11-devel [platform:rpm]
-  python:
-    - asyncio
+      - name: neubird.aap
+        version: 1.1.0
   python_interpreter:
     python_path: /usr/bin/python3.11
+  system:
+    - git [platform:rpm]
+    - gcc [platform:rpm]
+    - python-devel [platform:rpm]
+    - libxml2-devel [platform:rpm]
+    - systemd-devel [platform:rpm]
+    - python3.11-devel [platform:rpm]
+
+options:
+  package_manager_path: /usr/bin/microdnf
 
 additional_build_steps:
   prepend_galaxy:
@@ -29,7 +30,3 @@ additional_build_steps:
     - ENV ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_AUTH_URL=https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token
     - ENV ANSIBLE_GALAXY_SERVER_GALAXY_URL=https://galaxy.ansible.com
     - ARG ANSIBLE_GALAXY_SERVER_AUTOMATION_HUB_TOKEN
-
-options:
-  package_manager_path: /usr/bin/microdnf
-

@@ -4,4 +4,6 @@
 **/context/Dockerfile
 **.log
 
+**/ansible.cfg
+
 .venv

@@ -1,0 +1,20 @@
+name: AI EE build
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'ee-ai/**'
+
+  workflow_dispatch:
+
+jobs:
+  call-deploy-workflow:
+    uses: pumphouse-p/ansible-execution-environments/.github/workflows/build-and-push.yml@main
+    with:
+      EE_DIR_NAME: ee-ai
+      EE_IMAGE_TAG: latest
+      REGISTRY_URL: quay.io
+      REGISTRY_USERNAME: deparris
+    secrets: inherit
