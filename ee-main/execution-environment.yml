@@ -19,7 +19,7 @@ dependencies:
       - name: community.general
         version: 11.4.0
       - name: containers.podman
-        version: 1.18.0
+        version: 1.21.0
       - name: ansible.posix
         version: 2.1.0
     roles:
